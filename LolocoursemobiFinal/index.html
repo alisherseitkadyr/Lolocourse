@@ -104,10 +104,15 @@
 <div class="page reviews-page" id="section4">
   <div class="reviews-section">
     <h2 class="section-title">Отзывы наших пользователей</h2>
+    
     <div class="slider-container">
-      <!-- Левая фотография -->
-      <div class="slider-photo">
-        <img src="img/avatar1.jpg" alt="Пользователь 1" />
+      <!-- Отзыв 1 -->
+      <div class="review-card">
+        <blockquote>
+          We've seen a significant improvement in student engagement since using LoLoCourse. It's intuitive and powerful.
+        </blockquote>
+        <div class="review-author">Sarah Kim</div>
+        <div class="review-role">Online School Owner</div>
       </div>
 
       <!-- Центральная карточка отзыва -->
@@ -119,14 +124,18 @@
         <div class="review-role">HR Director, Tech Innovations Inc.</div>
       </div>
 
-      <!-- Правая фотография -->
-      <div class="slider-photo">
-        <img src="img/avatar2.jpg" alt="Пользователь 2" />
+      <!-- Отзыв 3 -->
+      <div class="review-card">
+        <blockquote>
+          This platform changed how we run internal training. Easy to use and very flexible!
+        </blockquote>
+        <div class="review-author">Markus Jansen</div>
+        <div class="review-role">Corporate Trainer</div>
       </div>
 
-      <!-- Стрелки -->
-      <div class="slider-arrow left">&#8592;</div>
-      <div class="slider-arrow right">&#8594;</div>
+      <!-- Кастомные стрелки навигации -->
+      <div class="custom-arrow left" onclick="prevSlide()"></div>
+      <div class="custom-arrow right" onclick="nextSlide()"></div>
     </div>
 
     <!-- Точки-переключатели -->
@@ -138,6 +147,14 @@
   </div>
 </div>
 
+    <!-- Точки-переключатели -->
+    <div class="slider-dots">
+      <span class="active"></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</div>
 
 <!-- Страница 5: Контакты -->
 <div class="page" id="section5">
