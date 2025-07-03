@@ -5,7 +5,7 @@ import (
 )
 
 func SaveLead(lead models.Lead) error {
-	_, err := DB.Exec(`INSERT INTO leads (name, phone, email, time) VALUES (?, ?, ?, ?)`,
-		lead.Name, lead.Phone, lead.Email, lead.Time)
+	_, err := DB.Exec(`INSERT INTO leads (fullname, position, company, email, phone, course_description, time) VALUES (?, ?, ?, ?, ?, ?, ?)`,
+		lead.FullName, lead.Position, lead.Company, lead.Email, lead.Phone, lead.Course_description, lead.Time)
 	return err
 }

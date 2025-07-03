@@ -1,34 +1,33 @@
 package handlers
 
 import (
-	"encoding/json"
-	"landing/backend/models"
 	"landing/backend/storage"
+	"landing/backend/models"
 	"net/http"
 	"time"
 )
 
-func HandleLead(w http.ResponseWriter, r *http.Request) {
+func LeadHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
-		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
+		http.Error(w, "Only POST allowed", http.StatusMethodNotAllowed)
 		return
 	}
 
-	var lead models.Lead
-	if err := json.NewDecoder(r.Body).Decode(&lead); err != nil {
-		http.Error(w, "Invalid data", http.StatusBadRequest)
+	lead := models.Lead{
+		FullName:    r.FormValue("fullName"),
+		Position:    r.FormValue("position"),
+		Company:     r.FormValue("company"),
+		Email:       r.FormValue("email"),
+		Phone:       r.FormValue("phone"),
+		Course_description:     r.FormValue("message"),
+		Time:        time.Now().Format(time.RFC3339),
+	}
+
+	err := storage.SaveLead(lead)
+	if err != nil {
+		http.Error(w, "Error saving lead", http.StatusInternalServerError)
 		return
 	}
 
-	lead.Time = time.Now().Format(time.RFC3339)
-
-	if err := storage.SaveLead(lead); err != nil {
-		http.Error(w, "DB Error", http.StatusInternalServerError)
-		return
-	}
-
-	json.NewEncoder(w).Encode(map[string]string{
-		"status":  "ok",
-		"message": "Заявка сохранена",
-	})
+	http.Redirect(w, r, "/", http.StatusSeeOther)
 }

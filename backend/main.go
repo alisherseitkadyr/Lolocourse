@@ -22,7 +22,7 @@ func main() {
 	}
 	storage.InitDB()
 
-	http.HandleFunc("/userdata", handlers.HandleLead)
+	http.HandleFunc("/userdata", handlers.LeadHandler)
 
 	fs := http.FileServer(http.Dir("../frontend"))
 	http.Handle("/", fs)

@@ -1,8 +1,11 @@
 package models
 
 type Lead struct {
-	Name  string `json:"name"`
-	Phone string `json:"phone"`
-	Email string `json:"email,omitempty"`
-	Time  string `json:"time"`
+	FullName    string `json:"fullName"`
+	Position    string `json:"position"`
+	Company     string `json:"company"`
+	Email       string `json:"email"`
+	Phone       string `json:"phone"`
+	Course_description     string `json:"message"`
+	Time        string `json:"time"`
 }
