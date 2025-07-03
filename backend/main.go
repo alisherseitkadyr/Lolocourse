@@ -23,6 +23,8 @@ func main() {
 	storage.InitDB()
 
 	http.HandleFunc("/userdata", handlers.LeadHandler)
+	http.HandleFunc("/userdata", handlers.WithCORS(handlers.LeadHandler))
+
 
 	fs := http.FileServer(http.Dir("../frontend"))
 	http.Handle("/", fs)

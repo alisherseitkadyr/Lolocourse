@@ -33,3 +33,16 @@ func LeadHandler(w http.ResponseWriter, r *http.Request) {
     w.Write([]byte("OK"))
 
 }
+
+func WithCORS(next http.HandlerFunc) http.HandlerFunc {
+    return func(w http.ResponseWriter, r *http.Request) {
+        w.Header().Set("Access-Control-Allow-Origin", "https://lolocourse.onrender.com")
+        w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS")
+        w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+        if r.Method == "OPTIONS" {
+            return
+        }
+        next(w, r)
+    }
+}
+
