@@ -224,8 +224,14 @@
 <button type="submit">Оставить заявку</button>
 </div>
 </form>
+<div id="formMessage" style="display: none; color: green; font-weight: bold; margin-top: 10px;">
+  Спасибо! Мы скоро свяжемся с вами.
 </div>
 </div>
+</div>
+
+
+
 <!-- 7 СТРАНИЦА -->
 <div class="page footer-page" id="section7">
 <footer class="footer">
@@ -277,4 +283,29 @@
 </footer>
 </div>
 </body>
+
+<script>
+document.getElementById("leadForm").addEventListener("submit", async function (e) {
+  e.preventDefault(); // prevent page reload
+
+  const formData = new FormData(this);
+
+  const response = await fetch("https://lolocourse.onrender.com/userdata", {
+  method: "POST",
+  body: formData
+  });
+
+
+  if (response.ok) {
+    document.getElementById("formMessage").style.display = "block";
+    this.reset(); // clear the form
+
+    setTimeout(() => {
+      document.getElementById("formMessage").style.display = "none";
+    }, 5000);
+  } else {
+    alert("Ошибка при отправке заявки. Попробуйте позже.");
+  }
+});
+</script>
 </html>
