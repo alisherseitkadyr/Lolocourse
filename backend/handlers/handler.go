@@ -29,5 +29,7 @@ func LeadHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	http.Redirect(w, r, "/", http.StatusSeeOther)
+	w.WriteHeader(http.StatusOK)
+    w.Write([]byte("OK"))
+
 }
