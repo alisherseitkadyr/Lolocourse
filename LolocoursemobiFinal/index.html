@@ -7,26 +7,53 @@
 <title>LoLoCourse</title>
 <link href="css/styles.css" rel="stylesheet"/>
 </head>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const burger = document.getElementById("burgerToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    burger.addEventListener("click", function () {
+      mobileMenu.classList.toggle("show");
+    });
+  });
+</script>
 <body>
 <!-- 1 страница -->
 <div class="page hero-page" id="section1">
   <header class="navbar">
-    <div class="logo-block">
-      <img src="img/Lolocourse Logo.png" alt="LOLOCOURSE" class="logo-icon">
-    </div>
-    <nav class="menu">
-      <a href="#section2">Возможности</a>
-      <a href="#section3">Преимущества</a>
-      <a href="#section5">Тарифы</a>
-      <a href="#section4">Отзывы</a>
-      <a href="#section7">Контакты</a>
-    </nav>
-    <div class="auth-buttons">
-      <a href="#section6" class="btn primary">Попробовать бесплатно</a>
-      <a href="#section6" class="btn secondary">Войти</a>
-    </div>
-  </header>
+  <div class="logo-block">
+    <img src="img/Lolocourse Logo.png" alt="LOLOCOURSE" class="logo-icon">
+  </div>
 
+  <nav class="menu">
+    <a href="#section2">Возможности</a>
+    <a href="#section3">Преимущества</a>
+    <a href="#section5">Тарифы</a>
+    <a href="#section4">Отзывы</a>
+    <a href="#section7">Контакты</a>
+  </nav>
+
+  <div class="auth-buttons">
+    <a href="#section6" class="btn primary">Попробовать бесплатно</a>
+    <a href="#section6" class="btn secondary">Войти</a>
+
+    <!-- Иконка бургера под "Войти" -->
+    <div class="burger-icon" id="burgerToggle">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+  <!-- Выпадающее меню -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#section2">Возможности</a>
+    <a href="#section3">Преимущества</a>
+    <a href="#section5">Тарифы</a>
+    <a href="#section4">Отзывы</a>
+    <a href="#section7">Контакты</a>
+  </div>
+</header>
 <section class="hero">
   <div class="hero-text">
     <h1>

@@ -36,6 +36,62 @@ html, body {
   box-shadow: 0 10px 24px rgba(0,0,0,0.08);
   max-width: 1400px;
   box-sizing: border-box;
+  position: relative;
+}
+
+.burger-icon {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.burger-icon div {
+  width: 25px;
+  height: 3px;
+  background-color: #000;
+  border-radius: 2px;
+}
+
+.burger.open div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger.open div:nth-child(2) {
+  opacity: 0;
+}
+
+.burger.open div:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 24px;
+  padding: 20px 0;
+  margin: 10px auto 0;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  width: 90%;
+  max-width: 360px;
+  position: relative;
+  z-index: 999;
+}
+
+.mobile-menu a {
+  color: #000;
+  text-decoration: none;
+  padding: 10px 0;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.mobile-menu.show {
+  display: flex;
 }
 
 .logo-block {
@@ -74,7 +130,6 @@ html, body {
   letter-spacing: 0.7px;
 }
 
-
 .menu a {
   text-decoration: none;
   color: #000;
@@ -84,7 +139,6 @@ html, body {
   border-bottom: 2px solid transparent;
   transition: border-color 0.3s ease;
 }
-
 
 .menu a:hover,
 .menu a.active {
@@ -226,7 +280,6 @@ html, body {
   max-width: 600px;
   color: #ccc;
 }
-
 
 /* === Features === */
 .features-page {
@@ -534,7 +587,6 @@ html, body {
   font-size: 14px;
 }
 
-
 .reviews-section {
   text-align: center;
   color: #0a0a0a;
@@ -614,6 +666,7 @@ html, body {
   justify-content: space-between;
   background: white;
 }
+
 .quote-mark {
   font-size: 36px;
   color: #2a7cff;
@@ -678,6 +731,7 @@ html, body {
   position: relative;
   padding-left: 30px;
 }
+
 .custom-arrow {
   position: absolute;
   top: 50%;
@@ -690,6 +744,7 @@ html, body {
   cursor: pointer;
   z-index: 10;
 }
+
 .custom-arrow::after {
   content: '';
   display: block;
@@ -786,7 +841,6 @@ html, body {
   border-radius: 12px;
   background: #0051c2;
 }
-
 
 .pricing-section {
   text-align: center;
@@ -1372,6 +1426,15 @@ html, body {
 }
 
 @media (max-width: 768px) {
+
+ .burger-icon {
+    display: flex;
+  }
+
+  .mobile-menu.show {
+    display: flex;
+  }
+
   .navbar {
     flex-direction: column;
     align-items: center;
@@ -1390,9 +1453,22 @@ html, body {
 }
 
 .menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: white;
   flex-direction: column;
-  gap: 12px;
+  align-items: center;
+  display: none;
+  gap: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
+
+.menu.active {
+    display: flex;
+  }
 
 .auth-buttons {
   flex-direction: column;
