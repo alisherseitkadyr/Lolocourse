@@ -24,7 +24,6 @@ func main() {
 
 	http.HandleFunc("/userdata", handlers.WithCORS(handlers.LeadHandler))
 
-
 	fs := http.FileServer(http.Dir("../frontend"))
 	http.Handle("/", fs)
 

@@ -7,26 +7,53 @@
 <title>LoLoCourse</title>
 <link href="css/styles.css" rel="stylesheet"/>
 </head>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const burger = document.getElementById("burgerToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    burger.addEventListener("click", function () {
+      mobileMenu.classList.toggle("show");
+    });
+  });
+</script>
 <body>
 <!-- 1 страница -->
 <div class="page hero-page" id="section1">
   <header class="navbar">
-    <div class="logo-block">
-      <img src="img/Lolocourse Logo.png" alt="LOLOCOURSE" class="logo-icon">
-    </div>
-    <nav class="menu">
-      <a href="#section2">Возможности</a>
-      <a href="#section3">Преимущества</a>
-      <a href="#section5">Тарифы</a>
-      <a href="#section4">Отзывы</a>
-      <a href="#section7">Контакты</a>
-    </nav>
-    <div class="auth-buttons">
-      <a href="https://lolocourse.com/login/index.php" class="btn primary">Попробовать бесплатно</a>
-      <a href="https://lolocourse.com/login/index.php" class="btn secondary">Войти</a>
-    </div>
-  </header>
+  <div class="logo-block">
+    <img src="img/Lolocourse Logo.png" alt="LOLOCOURSE" class="logo-icon">
+  </div>
 
+  <nav class="menu">
+    <a href="#section2">Возможности</a>
+    <a href="#section3">Преимущества</a>
+    <a href="#section5">Тарифы</a>
+    <a href="#section4">Отзывы</a>
+    <a href="#section7">Контакты</a>
+  </nav>
+
+  <div class="auth-buttons">
+    <a href="https://lolocourse.com/login/index.php" class="btn primary">Попробовать бесплатно</a>
+    <a href="https://lolocourse.com/login/index.php" class="btn secondary">Войти</a>
+
+    <!-- Иконка бургера под "Войти" -->
+    <div class="burger-icon" id="burgerToggle">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+  <!-- Выпадающее меню -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#section2">Возможности</a>
+    <a href="#section3">Преимущества</a>
+    <a href="#section5">Тарифы</a>
+    <a href="#section4">Отзывы</a>
+    <a href="#section7">Контакты</a>
+  </div>
+</header>
 <section class="hero">
   <div class="hero-text">
     <h1>
@@ -52,7 +79,7 @@
 <!-- 2 страница -->
 <div class="page features-page" id="section2">
 <section class="features-section">
-<h2 class="section-title">С LoLoCourse уже создают, запускают и зарабатывают</h2>
+<h2 class="section-title">С LOLOCOURSE уже создают, запускают и зарабатывают</h2>
 <div class="features-grid">
 <div class="feature-card">
 <h3>Бесплатный старт</h3>
@@ -74,7 +101,7 @@
 <p class="description">
         LoLoCourse уже объединяет тысячи авторов онлайн-курсов из 10+ стран. Платформа помогает преподавателям, коучам и продюсерам запускать свои проекты, масштабироваться и зарабатывать — без технических барьеров.
       </p>
-<a href="https://lolocourse.com/login/index.php"><button class="btn launch-btn">Запустить курс сейчас →</button></a> 
+<button class="btn launch-btn">Запустить курс сейчас →</button>
 </section>
 </div>
 <!-- 3 страница -->
@@ -169,7 +196,7 @@
 <li>Загрузка видео и файлов</li>
 <li>Базовая аналитика</li>
 </ul>
-<a href="https://lolocourse.com/login/index.php"><button class="pricing-button primary" >Начать бесплатно</button></a>
+<a href="https://lolocourse.com/login/index.php"></a><button class="pricing-button primary">Начать бесплатно</button>
 </div>
 <!-- Профессиональный -->
 <div class="pricing-card popular">
@@ -183,7 +210,7 @@
 <li>Продвинутая аналитика</li>
 <li><strong>Telegram</strong>-поддержка</li>
 </ul>
-<a href="https://lolocourse.com/login/index.php"><button class="pricing-button secondary">Выбрать план</button></a>
+<a href="https://lolocourse.com/login/index.php"></a><button class="pricing-button secondary">Выбрать план</button>
 </div>
 <!-- Корпоративный -->
 <div class="pricing-card enterprise">
@@ -196,7 +223,7 @@
 <li><strong>SLA</strong>-поддержка 24/7</li>
 <li>Обучение команды</li>
 </ul>
-<a href="https://lolocourse.com/login/index.php"><button class="pricing-button enterprise">Оставить заявку</button></a>
+<a href="https://lolocourse.com/login/index.php"></a><button class="pricing-button enterprise">Оставить заявку</button>
 </div>
 </div>
 </div>
@@ -207,15 +234,15 @@
 <h2 class="demo-title">Попробуйте демо <span class="highlight">бесплатно</span></h2>
 <p class="demo-subtitle">Оставьте заявку — мы свяжемся с вами и поможем начать работу с платформой.</p>
 <form class="demo-form" id="leadForm">
- <div class="form-left">
-    <input name="fullName" type="text" placeholder="Имя и Фамилия" required>
-    <input name="position" type="text" placeholder="Должность">
-    <input name="company" type="text" placeholder="Компания">
-    <input name="email" type="email" placeholder="E-mail" required>
-    <input name="phone" type="tel" placeholder="+7 (___) ___-____">
-  </div>
+<div class="form-left">
+<input placeholder="Имя и Фамилия" required="" type="text"/>
+<input placeholder="Должность" type="text"/>
+<input placeholder="Компания" type="text"/>
+<input placeholder="E-mail" required="" type="email"/>
+<input placeholder="+7 (___) ___-____" type="tel"/>
+</div>
 <div class="form-right">
-<textarea name="message" placeholder="Опишите, какой онлайн-курс вы хотите запустить и какие функции платформы вам важны. Укажите удобное время для связи — мы всё подробно расскажем."></textarea>
+<textarea placeholder="Опишите, какой онлайн-курс вы хотите запустить и какие функции платформы вам важны. Укажите удобное время для связи — мы всё подробно расскажем."></textarea>
 </div>
 <div class="form-checkboxes">
 
@@ -224,14 +251,8 @@
 <button type="submit">Оставить заявку</button>
 </div>
 </form>
-<div id="formMessage" style="display: none; color: green; font-weight: bold; margin-top: 10px;">
-  Спасибо! Мы скоро свяжемся с вами.
 </div>
 </div>
-</div>
-
-
-
 <!-- 7 СТРАНИЦА -->
 <div class="page footer-page" id="section7">
 <footer class="footer">
@@ -283,7 +304,6 @@
 </footer>
 </div>
 </body>
-
 <script>
 document.getElementById("leadForm").addEventListener("submit", async function (e) {
   e.preventDefault(); // prevent page reload
